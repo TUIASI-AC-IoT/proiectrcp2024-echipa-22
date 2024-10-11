@@ -1,1 +1,1 @@
-# proiectrcp2024-echipa-22
+proiectrcp2024-echipa-22
