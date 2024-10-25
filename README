@@ -1,5 +1,5 @@
 # mDNS and DNS-SD Implementation Guide
-## Table of Contents
+# Table of Contents
 1. [Core Concepts](#core-concepts)
 2. [Protocol Specifications](#protocol-specifications)
 3. [Message Structure](#message-structure)
@@ -7,25 +7,25 @@
 5. [Implementation Steps](#implementation-steps)
 6. [Network Configuration](#network-configuration)
 
-## Core Concepts
+# Core Concepts
 
-### DNS (Domain Name System)
+# DNS (Domain Name System)
 - System for converting URLs to IP addresses
 - Example: "google.com" → 172.217.23.110
 
-### mDNS (Multicast DNS)
+# mDNS (Multicast DNS)
 - Enables DNS operations in local networks
 - Uses ".local" domain naming convention
 - Example: "MyComputer.local"
 
-### DNS-SD (DNS-based Service Discovery)
+# DNS-SD (DNS-based Service Discovery)
 - Enables device and service discovery within local networks
 - Allows automatic service detection and interaction
 - Example: Mobile phone discovering and communicating with a network printer
 
-## Protocol Specifications
+# Protocol Specifications
 
-### Network Configuration
+# Network Configuration
 - IPv4 prefix: 169.254/16
 - IPv6 prefix: FE80::/10
 - Local address resolution:
@@ -33,17 +33,17 @@
   - IPv6: FF02::FB
 - UDP port: 5353
 
-### Query Types
+# Query Types
 1. One-shot queries
 2. Continuous/ongoing queries
 
-### Query Rules
+# Query Rules
 - Responses must not contain additional queries
 - Random delay between queries:
   - Normal: 20-120ms
   - Truncated sets: 400-500ms
 
-### Packet Limitations
+# Packet Limitations
 - Header sizes:
   - IPv4: 20 bytes
   - IPv6: 40 bytes 
@@ -52,9 +52,9 @@
   - Theoretical limit: 9000 bytes
   - Recommended limit: 1500 bytes
 
-## Message Structure
+# Message Structure
 
-### Header Fields
+# Header Fields
 | Field | Query Value | Response Value |
 |-------|-------------|----------------|
 | ID | 0 | Ignored |
@@ -66,9 +66,9 @@
 | RA | 0 | Ignored |
 | RCODE | 0 | !=0 ignored |
 
-## Record Types
+# Record Types
 
-### TXT Records
+# TXT Records
 - Format: "key=value"
 - Maximum size: 200 bytes per record
 - Structure example:
@@ -80,7 +80,7 @@
   - Missing value: Treated as boolean (default: true)
   - Recommended: Include "txtvers=1" or "txtvers=8"
 
-### PTR Records
+# PTR Records
 - Format: `_service._proto.name. ttl PTR type CNAME`
 - Example: `_printer._tcp.local. 28800 PTR PrintsAlot._printer._tcp.local.`
 - Field sizes:
@@ -91,7 +91,7 @@
   - type: 2 bytes (16 bits)
   - CNAME: ≤255 bytes
 
-### SRV Records
+# SRV Records
 - Format: `_service._proto.name. ttl IN SRV priority weight port target`
 - Example: `_sip._tcp.example.com. 86400 IN SRV 0 5 5060 sipserver.example.com.`
 - Field descriptions:
@@ -104,7 +104,7 @@
   - port: Service port (2 bytes)
   - target: Host name (≤255 bytes)
 
-## Implementation Steps
+# Implementation Steps
 
 1. Device Discovery
    - Send 3 mDNS queries
@@ -122,7 +122,7 @@
    - Client selects services via interface
    - Server logs all activities
 
-## Record Conversion Flow
+# Record Conversion Flow
 ```
 SRV → PTR → A → TXT
 
