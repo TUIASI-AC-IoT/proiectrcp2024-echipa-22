@@ -11,4 +11,4 @@ Cerințe Funcționale:
 3.Monitorizarea resurselor sistemului (procesor, memorie, temperatură) \
 4.Descoperirea serviciilor în rețeaua locală \
 5.Implementarea mecanismului de caching \
-6.Control TTL pentru monitorizare \
+6.Control TTL pentru monitorizare\
