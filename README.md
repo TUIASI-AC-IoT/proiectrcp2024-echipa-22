@@ -1,4 +1,4 @@
-                                                                  # Implementare mDNS și DNS-SD. Documentație Tehnică 
+#                                                               Implementare mDNS și DNS-SD. Documentație Tehnică 
 
 Introducere:
 Acest proiect implementează un sistem de descoperire a serviciilor folosind mDNS (Multicast DNS) și DNS-SD (DNS Service Discovery). Aplicația permite monitorizarea resurselor sistemului și expunerea lor ca servicii în rețeaua locală.
