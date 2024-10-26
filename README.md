@@ -5,7 +5,7 @@ Acest proiect implementează un sistem de descoperire a serviciilor folosind mDN
 
 # Introducere:
 
-1. (mDNS (Multicast DNS)) este o tehnologie care permite realizarea operațiilor de tip DNS într-o rețea locală mică, fără a necesita un server DNS centralizat. Fiecare dispozitiv din rețea poate obține automat un nume unic de tipul „MyComputer.local”, făcând mai ușoară identificarea și comunicarea între dispozitivele conectate.
+1. (_mDNS (Multicast DNS)_) este o tehnologie care permite realizarea operațiilor de tip DNS într-o rețea locală mică, fără a necesita un server DNS centralizat. Fiecare dispozitiv din rețea poate obține automat un nume unic de tipul „MyComputer.local”, făcând mai ușoară identificarea și comunicarea între dispozitivele conectate.
 
 # Tipuri de mesaje mDNS
 1. Query (Cerere):
