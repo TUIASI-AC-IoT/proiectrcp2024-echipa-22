@@ -9,7 +9,6 @@ mDNS (Multicast DNS) este o tehnologie care permite realizarea operațiilor de t
 
 DNS-SD (DNS-based Service Discovery) este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
 
-
 # Cerințe Funcționale:
 
 1.Utilizarea modulului socket pentru comunicație \
@@ -18,10 +17,6 @@ DNS-SD (DNS-based Service Discovery) este o metodă prin care dispozitivele dint
 4.Descoperirea serviciilor în rețeaua locală \
 5.Implementarea mecanismului de caching \
 6.Control TTL pentru monitorizare
-
-
-
-# În cadrul acestui proiect, trebuie să folosim mDNS (Multicast DNS) și DNS-SD (DNS-based Service Discovery), tehnologii esențiale pentru descoperirea serviciilor într-o rețea locală.
 
 # Tipuri de înregistrări DNS utilizate:
 SRV: Descrie serviciul, portul și protocolul asociat.
