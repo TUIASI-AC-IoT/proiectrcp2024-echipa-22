@@ -5,7 +5,7 @@ Acest proiect implementează un sistem de descoperire a serviciilor folosind mDN
 
 # Introducere:
 
-mDNS (Multicast DNS) este o tehnologie care permite realizarea operațiilor de tip DNS într-o rețea locală mică, fără a necesita un server DNS centralizat. Fiecare dispozitiv din rețea poate obține automat un nume unic de tipul „MyComputer.local”, făcând mai ușoară identificarea și comunicarea între dispozitivele conectate.
+1. ## mDNS (Multicast DNS) este o tehnologie care permite realizarea operațiilor de tip DNS într-o rețea locală mică, fără a necesita un server DNS centralizat. Fiecare dispozitiv din rețea poate obține automat un nume unic de tipul „MyComputer.local”, făcând mai ușoară identificarea și comunicarea între dispozitivele conectate.
 
 # Tipuri de mesaje mDNS
 1. Query (Cerere):
@@ -15,7 +15,7 @@ Query-urile sunt trimise către o adresă de multicast specială (de obicei, 224
 Atunci când un dispozitiv primește o cerere care îi corespunde, acesta trimite un răspuns mDNS. De exemplu, dacă un dispozitiv a primit o cerere pentru „MyComputer.local” și acesta este numele său, va răspunde cu adresa sa IP.
 Răspunsurile mDNS includ diferite tipuri de înregistrări DNS, cum ar fi A (pentru adresa IP), PTR (pentru servicii), SRV (pentru informații despre serviciu, port și protocol) și TXT (pentru date suplimentare despre serviciu).
 
-DNS-SD (DNS-based Service Discovery) este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
+2. # DNS-SD (DNS-based Service Discovery) este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
 
 # Cerințe Funcționale:
 
