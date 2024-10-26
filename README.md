@@ -5,13 +5,9 @@ Acest proiect implementează un sistem de descoperire a serviciilor folosind mDN
 
 # Introducere:
 
-mDNS - Multicast DNS - modul în care, într-o rețea locală (de obicei, de dimensiuni reduse) se
-pot efectua operații de tip DNS într-o manieră simplă (cum ar fi asignarea fiecărui calculator și
-fiecărei adrese din rețea, o adresă tipic celor găzduite, de tipul MyComputer.local.)
-DNS-SD - DNS-based Service Discovery - modalitatea în care, în cadrul unei rețele locale, pot fi
-interogate și identificate dispozitive ce acceptă comenzi/operații specifice. (de exemplu: un
-telefon mobil poate transmite unei imprimate comanda de a printa ceva, prin simplul fapt că
-ambele dispozitive sunt conectate la aceeași rețea)
+mDNS (Multicast DNS) este o tehnologie care permite realizarea operațiilor de tip DNS într-o rețea locală mică, fără a necesita un server DNS centralizat. Fiecare dispozitiv din rețea poate obține automat un nume unic de tipul „MyComputer.local”, făcând mai ușoară identificarea și comunicarea între dispozitivele conectate.
+
+DNS-SD (DNS-based Service Discovery) este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
 
 
 # Cerințe Funcționale:
