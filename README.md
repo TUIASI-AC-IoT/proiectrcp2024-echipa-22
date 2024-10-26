@@ -55,8 +55,8 @@ Pentru a reduce cererile repetate de rețea, trebuie implementat un mecanism de 
 În partea de monitorizare, voi implementa o opțiune prin care să pot modifica valoarea TTL pentru fiecare resursă în parte. Acest control îmi va permite să gestionez cât timp rămân valide resursele în cache și să optimizez traficul de rețea.
 
 # Resurse utile
-Pentru a înțelege mai bine cum implementez aceste concepte, mă voi baza pe următoarele documente și resurse:
+Pentru a înțelege mai bine cum implementez aceste concepte,ne vom baza pe următoarele documente și resurse:
 
-RFC 6762 pentru detalii tehnice despre Multicast DNS (mDNS)
-RFC 6763 pentru informații despre DNS-based Service Discovery (DNS-SD)
-Documentația pentru socket programming în Python (sau alte limbaje relevante)
+[RFC 6762 pentru detalii tehnice despre Multicast DNS (mDNS)](https://datatracker.ietf.org/doc/html/rfc6762)
+[RFC 6763 pentru informații despre DNS-based Service Discovery (DNS-SD)](https://datatracker.ietf.org/doc/html/rfc6763)
+[Documentația pentru socket în Python](https://docs.python.org/3/library/socket.html)
