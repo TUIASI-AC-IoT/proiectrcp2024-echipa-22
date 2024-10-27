@@ -13,7 +13,7 @@ Acest mesaj este trimis atunci când un dispozitiv dorește să afle informații
 2. Response (Răspuns):
 Atunci când un dispozitiv primește o cerere care îi corespunde, acesta trimite un răspuns mDNS. De exemplu, dacă un dispozitiv a primit o cerere pentru „MyComputer.local” și acesta este numele său, va răspunde cu adresa sa IP. Răspunsurile mDNS includ diferite tipuri de înregistrări DNS, cum ar fi A (pentru adresa IP), PTR (pentru servicii), SRV (pentru informații despre serviciu, port și protocol) și TXT (pentru date suplimentare despre serviciu).
 
-**DNS-SD (DNS-based Service Discovery)** este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
+3. **DNS-SD (DNS-based Service Discovery)** este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
 
 # Cerințe Funcționale:
 
