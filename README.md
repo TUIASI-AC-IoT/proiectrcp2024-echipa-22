@@ -15,8 +15,7 @@ Atunci când un dispozitiv primește o cerere care îi corespunde, acesta trimit
 ![Imagine1](https://github.com/TUIASI-AC-IoT/proiectrcp2024-echipa-22/blob/main/diverse/mDNS.png)
 
 # DNS-SD (DNS-based Service Discovery)
-2. **DNS-SD (DNS-based Service Discovery)** este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct. \
-![Imagine2](https://github.com/TUIASI-AC-IoT/proiectrcp2024-echipa-22/blob/main/diverse/dns-ds.png)
+2. **DNS-SD (DNS-based Service Discovery)** este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct. 
 
 # Tipuri de înregistrări DNS folosite în DNS-SD
 1. PTR (Pointer Record):
@@ -26,7 +25,9 @@ Aceste înregistrări indică prezența unui serviciu și direcționează către
 3. TXT (Text Record):
 Înregistrările TXT furnizează detalii suplimentare despre serviciu, cum ar fi versiunea software, funcționalități disponibile sau alte informații care pot fi utile pentru clienți. Acestea sunt transmise sub formă de perechi cheie-valoare.
 4. A (Address Record):
-Înregistrările A sunt folosite pentru a oferi adresa IP a unui dispozitiv, permițând accesul direct la serviciul găzduit pe dispozitivul respectiv.
+Înregistrările A sunt folosite pentru a oferi adresa IP a unui dispozitiv, permițând accesul direct la serviciul găzduit pe dispozitivul respectiv. \
+![Imagine2](https://github.com/TUIASI-AC-IoT/proiectrcp2024-echipa-22/blob/main/diverse/dns-ds.png)
+
 
 # Cerințe Funcționale:
 
