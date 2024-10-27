@@ -17,6 +17,16 @@ Atunci când un dispozitiv primește o cerere care îi corespunde, acesta trimit
 # DNS-SD (DNS-based Service Discovery)
 3. **DNS-SD (DNS-based Service Discovery)** este o metodă prin care dispozitivele dintr-o rețea locală pot fi descoperite și identificate în funcție de serviciile pe care le oferă. Acest lucru permite dispozitivelor să colaboreze fără configurări complexe; de exemplu, un telefon poate trimite comanda de imprimare către o imprimantă din aceeași rețea, datorită faptului că ambele dispozitive se pot recunoaște reciproc și pot comunica direct.
 
+# Tipuri de înregistrări DNS folosite în DNS-SD
+1. PTR (Pointer Record):
+Aceste înregistrări indică prezența unui serviciu și direcționează către o înregistrare specifică de tip SRV. De exemplu, un serviciu de tip „_http._tcp.local” va avea un registru PTR care indică toate dispozitivele din rețea care rulează un server HTTP.
+2. SRV (Service Record):
+Înregistrările SRV oferă informații despre locația unui serviciu, inclusiv numele dispozitivului, portul pe care funcționează serviciul și protocolul (TCP sau UDP). Aceasta ajută dispozitivele să știe exact cum să acceseze serviciul respectiv.
+3. TXT (Text Record):
+Înregistrările TXT furnizează detalii suplimentare despre serviciu, cum ar fi versiunea software, funcționalități disponibile sau alte informații care pot fi utile pentru clienți. Acestea sunt transmise sub formă de perechi cheie-valoare.
+4. A (Address Record):
+Înregistrările A sunt folosite pentru a oferi adresa IP a unui dispozitiv, permițând accesul direct la serviciul găzduit pe dispozitivul respectiv.
+
 # Cerințe Funcționale:
 
 1.Utilizarea modulului socket pentru comunicație \
