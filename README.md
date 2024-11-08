@@ -74,8 +74,14 @@ A indică adresa IP asociată unui serviciu. \
 TXT oferă informații adiționale despre serviciu, cum ar fi parametri de configurare sau descrierea serviciului. \
 Toate aceste tipuri de înregistrări vor trebui construite, iar pachetele vor fi procesate și trimise către rețea. 
 
-# 3. Expunerea resurselor ca servicii DNS-SD
-Crearea unei interfațe care va permite selectarea resurselor pe care vreau să le monitorizez. Apoi, aceste resurse vor fi expuse în rețea sub forma unor înregistrări DNS-SD (SRV). Înregistrările PTR vor fi configurate pentru a arăta către hostname-urile resurselor monitorizate.
+# 3. Monitorizarea resurselor sistemului (procesor, memorie, temperatură)
+Pentru a monitoriza resursele sistemului, se poate utiliza librăria psutil, care oferă funcționalități pentru a obține date despre utilizarea procesorului, memoriei și temperaturii dispozitivului.
+
+Pașii de implementare:
+
+Foloim funcțiile psutil pentru a colecta datele necesare, precum utilizarea CPU-ului, utilizarea memoriei sau temperaturile. \
+Aceste informații vor fi expuse sub formă de servicii DNS-SD, permițând altor dispozitive să le acceseze prin rețea. 
+
 
 # 4. Descoperirea serviciilor în rețeaua locală
 O alta parte va fi responsabila pentru descoperirea serviciilor disponibile în rețea. Acesta va trimite cereri multicast și va afișa adresele IP și valorile resurselor asociate fiecărei intrări descoperite.
