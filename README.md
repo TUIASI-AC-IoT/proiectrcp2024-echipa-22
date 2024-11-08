@@ -186,6 +186,16 @@ Crearea unei structuri de date (de exemplu, un dicționar sau un obiect) pentru 
 Asigurarea că fiecare înregistrare DNS din cache include un TTL asociat. Datele vor expira automat după intervalul de timp specificat. \
 La expirarea TTL-ului unei înregistrări, aceasta va fi eliminată din cache sau actualizată.
 
+Caching informațiilor despre servicii:
+Când aplicația descoperă servicii locale prin mDNS/DNS-SD, ea va stoca informațiile despre acele servicii într-un cache local.
+Informațiile stocate vor include detalii precum numele, tipul, adresa, portul și orice metadate suplimentare furnizate.
+Aceste informații vor fi păstrate timp de o anumită perioadă, pentru a evita interogarea repetată a rețelei atunci când utilizatorii solicită aceleași servicii.
+
+Actualizarea cache-ului:
+Periodically, aplicația va verifica valabilitatea informațiilor din cache, comparându-le cu răspunsurile mDNS/DNS-SD curente.
+Dacă se detectează modificări (de exemplu, un serviciu a fost adăugat, modificat sau eliminat), cache-ul va fi actualizat în consecință.
+Acest proces de actualizare periodică a cache-ului va asigura că aplicația dispune întotdeauna de informații actualizate despre serviciile disponibile.
+
 # 6. Controlul valorii TTL pentru monitorizare
 
 Pentru a oferi control asupra duratei de viață a înregistrărilor DNS, se va implementa o funcționalitate ce permite modificarea valorii TTL. Această opțiune ajută la gestionarea traficului de rețea și la utilizarea eficientă a resurselor sistemului.
