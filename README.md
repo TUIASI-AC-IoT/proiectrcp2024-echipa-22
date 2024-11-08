@@ -157,6 +157,26 @@ Trimiterea unor cereri mDNS pe portul 5353 către grupul multicast 224.0.0.251, 
 Așteptarea de răspunsuri de la dispozitivele din rețea, care vor conține informații despre serviciile disponibile, incluzând tipurile de înregistrări SRV, PTR, A și TXT. \
 Interpretarea răspunsurile primite și extragerea informațiilor relevante despre serviciile descoperite.
 
+Când o aplicație client descoperă servicii în rețeaua locală folosind mDNS/DNS-SD, ea va primi diverse informații despre acele servicii. Principalele informații pe care le poate extrage sunt:
+
+1. Numele serviciului:
+Numele serviciului este furnizat în câmpul "Name" al răspunsului DNS-SD.
+Acest nume oferă o descriere ușor de înțeles a serviciului, cum ar fi "Imprimantă laser" sau "Server media".
+
+2. Tipul serviciului:
+Tipul serviciului este inclus în câmpul "_service" al răspunsului.
+Acesta indică categoria generală a serviciului, cum ar fi "_printer" sau "_http".
+Tipul serviciului este important pentru a înțelege ce tip de funcționalitate oferă acel serviciu.
+
+3. Adresa și portul:
+Informațiile despre adresa IP și portul la care poate fi accesat serviciul sunt furnizate în înregistrarea SRV a răspunsului.
+Acestea permit aplicației client să se conecteze și să utilizeze efectiv serviciul descoperit.
+
+4. Metadate suplimentare:
+Multe servicii pot furniza informații suplimentare în câmpurile TXT ale răspunsului.
+Aceste metadate pot include detalii precum versiunea serviciului, locația fizică, capacități speciale, etc.
+Aplicația client poate analiza aceste câmpuri TXT pentru a obține informații mai complete despre serviciu.
+
 # 5. Implementarea mecanismului de caching
 
 Un mecanism de caching este esențial pentru stocarea rezultatelor DNS pe o perioadă de timp determinată, în funcție de valoarea TTL (Time To Live). Acest cache va reduce numărul de cereri DNS repetate, optimizând astfel performanța aplicației.
