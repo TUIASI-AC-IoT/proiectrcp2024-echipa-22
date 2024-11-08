@@ -152,7 +152,13 @@ Aceste informații vor fi expuse sub formă de servicii DNS-SD, permițând alto
 
 
 # 4. Descoperirea serviciilor în rețeaua locală
-O alta parte va fi responsabila pentru descoperirea serviciilor disponibile în rețea. Acesta va trimite cereri multicast și va afișa adresele IP și valorile resurselor asociate fiecărei intrări descoperite.
+Pentru a descoperi serviciile disponibile în rețeaua locală, va trebui implementat un mecanism care trimite cereri multicast DNS. Aceste cereri vor solicita informații de la celelalte dispozitive din rețea care oferă servicii DNS-SD.
+
+Pașii de implementare:
+
+Trimiterea unor cereri mDNS pe portul 5353 către grupul multicast 224.0.0.251, care este utilizat pentru descoperirea serviciilor în rețea. \
+Așteptarea de răspunsuri de la dispozitivele din rețea, care vor conține informații despre serviciile disponibile, incluzând tipurile de înregistrări SRV, PTR, A și TXT. \
+Interpretarea răspunsurile primite și extragerea informațiilor relevante despre serviciile descoperite.
 
 # 5. Implementarea caching-ului
 Pentru a reduce cererile repetate de rețea, trebuie implementat un mecanism de caching. Acest cache va stoca datele descoperite pe baza valorilor TTL ale înregistrărilor DNS. Astfel, se vor economisi resurse și timp, evitând cereri inutile.
