@@ -50,6 +50,85 @@ Crearea unui socket UDP care va comunica pe portul standard pentru mDNS (5353). 
 Configurarea socket-ului pentru a permite trimiterea și primirea pachetelor prin multicast, pe adresa 224.0.0.251. \
 Trimiterea pachetelor DNS folosind socket-ul configurat, respectând structura specifică mDNS/DNS-SD. \
 Ascultarea pe socket pentru a primi răspunsuri de la alte dispozitive din rețea, care vor include informațiile solicitate. 
+  Voi explica structura pachetelor DNS și DNS-SD în detaliu.
+
+DNS-SD (DNS Service Discovery) folosește înregistrări DNS standard, dar într-un mod specific pentru descoperirea serviciilor. Iată structura principală:
+
+1. Înregistrarea SRV (Service Record):
+```
+_serviciu._protocol.domeniu TTL IN SRV prioritate greutate port țintă
+```
+Unde:
+- _serviciu: numele serviciului (ex: _http, _printer)
+- _protocol: de obicei _tcp sau _udp
+- prioritate: număr pentru prioritizare (0-65535)
+- greutate: pentru load balancing (0-65535)
+- port: portul pe care rulează serviciul
+- țintă: numele host-ului care oferă serviciul
+
+2. Înregistrarea PTR (Pointer Record):
+```
+_serviciu._protocol.domeniu TTL IN PTR nume_instanță._serviciu._protocol.domeniu
+```
+- Folosită pentru a enumera instanțele disponibile ale unui serviciu
+- nume_instanță este un nume prietenos pentru serviciu
+
+3. Înregistrarea A/AAAA:
+```
+host.domeniu TTL IN A adresa_IPv4
+host.domeniu TTL IN AAAA adresa_IPv6
+```
+- Mapează numele host-ului la adresa IP
+
+4. Înregistrarea TXT (opțională):
+```
+nume_instanță._serviciu._protocol.domeniu TTL IN TXT "cheie1=valoare1" "cheie2=valoare2"
+```
+- Conține metadate adiționale despre serviciu
+- Format key-value pairs
+
+Un exemplu complet pentru un server web:
+```
+# Înregistrare PTR pentru enumerare
+_http._tcp.local. IN PTR WebServer._http._tcp.local.
+
+# Înregistrare SRV pentru detalii conexiune
+WebServer._http._tcp.local. IN SRV 0 0 80 host.local.
+
+# Înregistrare A pentru rezolvare IP
+host.local. IN A 192.168.1.100
+
+# Înregistrare TXT pentru metadate
+WebServer._http._tcp.local. IN TXT "version=1.0" "path=/"
+```
+
+Pentru mDNS (Multicast DNS):
+- Folosește aceeași structură ca DNS normal
+- Operează pe portul UDP 5353
+- Folosește adresa multicast 224.0.0.251 pentru IPv4
+- Numele de domeniu se termină în .local
+- Pachetele sunt limitate la 9000 bytes
+- Include câmpuri standard DNS header:
+  - ID
+  - Flags
+  - Question count
+  - Answer count
+  - Authority count
+  - Additional count
+
+Aspecte importante:
+1. TTL-urile sunt de obicei scurte pentru mDNS (câteva minute)
+2. Răspunsurile pot include multiple înregistrări pentru eficiență
+3. Se folosesc mecanisme de prevenire a coliziunilor pentru nume
+4. Serviciile trebuie să răspundă la interogări multicast
+
+Această structurare permite:
+- Descoperirea automată a serviciilor în rețea
+- Rezolvarea numelor fără server DNS central
+- Actualizarea dinamică a informațiilor despre servicii
+- Operare zero-configuration în rețele locale
+
+
 
 # 2. Implementarea structurii pachetelor mDNS/DNS-SD
 Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte formatul specificat de RFC-urile 6762 și 6763. Aceste pachete pot include mai multe tipuri de înregistrări, cum ar fi SRV, PTR, A și TXT.
