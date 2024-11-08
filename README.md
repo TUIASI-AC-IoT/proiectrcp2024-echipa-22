@@ -57,10 +57,10 @@ Primul pas în implementarea mDNS și DNS-SD este configurarea unui socket UDP c
 
 Pașii de implementare:
 
-Crearea unui socket UDP care va comunica pe portul standard pentru mDNS (5353). /
-Configurarea socket-ului pentru a permite trimiterea și primirea pachetelor prin multicast, pe adresa 224.0.0.251. /
-Trimiterea pachetelor DNS folosind socket-ul configurat, respectând structura specifică mDNS/DNS-SD. /
-Ascultarea pe socket pentru a primi răspunsuri de la alte dispozitive din rețea, care vor include informațiile solicitate. /
+Crearea unui socket UDP care va comunica pe portul standard pentru mDNS (5353). \
+Configurarea socket-ului pentru a permite trimiterea și primirea pachetelor prin multicast, pe adresa 224.0.0.251. \
+Trimiterea pachetelor DNS folosind socket-ul configurat, respectând structura specifică mDNS/DNS-SD. \
+Ascultarea pe socket pentru a primi răspunsuri de la alte dispozitive din rețea, care vor include informațiile solicitate. \
 
 # 2. Monitorizarea resurselor sistemului
 Pentru a monitoriza diverse resurse ale sistemului (precum utilizarea procesorului, memoriei și temperatura), vom utiliza un script care utilizează modulele Python potrivite, cum ar fi psutil. Acesta permite preluarea datele despre resursele sistemului și monitorizarea în timp real.
