@@ -162,8 +162,14 @@ Crearea unei structuri de date (de exemplu, un dicționar sau un obiect) pentru 
 Asigurarea că fiecare înregistrare DNS din cache include un TTL asociat. Datele vor expira automat după intervalul de timp specificat. \
 La expirarea TTL-ului unei înregistrări, aceasta va fi eliminată din cache sau actualizată.
 
-# 6. Controlul valorii TTL
-În partea de monitorizare, voi implementa o opțiune prin care să pot modifica valoarea TTL pentru fiecare resursă în parte. Acest control îmi va permite să gestionez cât timp rămân valide resursele în cache și să optimizez traficul de rețea.
+# 6. Controlul valorii TTL pentru monitorizare
+
+Pentru a oferi control asupra duratei de viață a înregistrărilor DNS, se va implementa o funcționalitate ce permite modificarea valorii TTL. Această opțiune ajută la gestionarea traficului de rețea și la utilizarea eficientă a resurselor sistemului.
+
+Pașii de implementare:
+
+La adăugarea unei înregistrări DNS în cache, se va permite configurarea unui TTL personalizat pentru fiecare înregistrare. \
+Utilizatorii vor putea modifica valorile TTL-ului pentru fiecare resursă monitorizată, optimizând comportamentul aplicației conform nevoilor specifice.
 
 
 # Resurse utile
