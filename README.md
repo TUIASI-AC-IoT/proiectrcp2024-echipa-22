@@ -67,11 +67,11 @@ Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte forma
 
 Pașii de implementare:
 
-Fiecare pachet DNS va conține tipul înregistrării (A, PTR, SRV, TXT), precum și numele și valorile corespunzătoare fiecărei înregistrări. /
-SRV indică serviciul, portul și protocolul asociat unui serviciu. /
-PTR furnizează informații despre serviciul disponibil pe un anumit hostname. /
-A indică adresa IP asociată unui serviciu. /
-TXT oferă informații adiționale despre serviciu, cum ar fi parametri de configurare sau descrierea serviciului. /
+Fiecare pachet DNS va conține tipul înregistrării (A, PTR, SRV, TXT), precum și numele și valorile corespunzătoare fiecărei înregistrări. \
+SRV indică serviciul, portul și protocolul asociat unui serviciu. \
+PTR furnizează informații despre serviciul disponibil pe un anumit hostname. \
+A indică adresa IP asociată unui serviciu. \
+TXT oferă informații adiționale despre serviciu, cum ar fi parametri de configurare sau descrierea serviciului. \
 Toate aceste tipuri de înregistrări vor trebui construite, iar pachetele vor fi procesate și trimise către rețea. 
 
 # 3. Expunerea resurselor ca servicii DNS-SD
