@@ -39,17 +39,6 @@ Aceste înregistrări indică prezența unui serviciu și direcționează către
 5.Implementarea mecanismului de caching \
 6.Control TTL pentru monitorizare
 
-# Tipuri de înregistrări DNS utilizate:
-SRV: Descrie serviciul, portul și protocolul asociat.
-PTR: Indică serviciile disponibile.
-A: Înregistrarea adresei IP pentru o anumită gazdă.
-TXT: Înregistrări text ce oferă informații suplimentare despre servicii.
-
-# Mediul de dezvoltare și configurarea socket-urilor:
-Pentru a implementa mDNS, va trebui să folosim socket-uri pentru a trimite și primi pachete pe adresele multicast. Aceste socket-uri vor folosi protocolul UDP pentru a trimite cereri DNS și a primi răspunsuri. De asemenea, trebuie ca pachetele trimise să respectă structura specifică a mDNS și DNS-SD.
-
-# Mecanisme de caching
-Pentru a optimiza aplicația, vom implementa un mecanism de caching. Acest mecanism va stoca rezultatele DNS descoperite pentru o perioadă determinată, bazându-se pe valoarea TTL (Time To Live) a fiecărui pachet. Acest lucru va reduce numărul de cereri de rețea și va îmbunătăți eficiența generală a aplicației.
 
 Pașii de implementare:
 # 1. Utilizarea modulului socket pentru comunicație
