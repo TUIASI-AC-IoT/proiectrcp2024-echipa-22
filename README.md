@@ -44,14 +44,6 @@ Pașii de implementare:
 # 1. Utilizarea modulului socket pentru comunicație
 Primul pas în implementarea mDNS și DNS-SD este configurarea unui socket UDP care va trimite și va primi mesaje prin rețea folosind adrese multicast. Modulul socket din Python este ideal pentru acest tip de comunicație, fiind capabil să interacționeze cu rețelele de multicast.
 
-Pașii de implementare:
-
-Crearea unui socket UDP care va comunica pe portul standard pentru mDNS (5353). \
-Configurarea socket-ului pentru a permite trimiterea și primirea pachetelor prin multicast, pe adresa 224.0.0.251. \
-Trimiterea pachetelor DNS folosind socket-ul configurat, respectând structura specifică mDNS/DNS-SD. \
-Ascultarea pe socket pentru a primi răspunsuri de la alte dispozitive din rețea, care vor include informațiile solicitate. 
-  Voi explica structura pachetelor DNS și DNS-SD în detaliu.
-
 DNS-SD (DNS Service Discovery) folosește înregistrări DNS standard, dar într-un mod specific pentru descoperirea serviciilor. Iată structura principală:
 
 1. Înregistrarea SRV (Service Record):
