@@ -152,8 +152,15 @@ Trimiterea unor cereri mDNS pe portul 5353 către grupul multicast 224.0.0.251, 
 Așteptarea de răspunsuri de la dispozitivele din rețea, care vor conține informații despre serviciile disponibile, incluzând tipurile de înregistrări SRV, PTR, A și TXT. \
 Interpretarea răspunsurile primite și extragerea informațiilor relevante despre serviciile descoperite.
 
-# 5. Implementarea caching-ului
-Pentru a reduce cererile repetate de rețea, trebuie implementat un mecanism de caching. Acest cache va stoca datele descoperite pe baza valorilor TTL ale înregistrărilor DNS. Astfel, se vor economisi resurse și timp, evitând cereri inutile.
+# 5. Implementarea mecanismului de caching
+
+Un mecanism de caching este esențial pentru stocarea rezultatelor DNS pe o perioadă de timp determinată, în funcție de valoarea TTL (Time To Live). Acest cache va reduce numărul de cereri DNS repetate, optimizând astfel performanța aplicației.
+
+Pașii de implementare:
+
+Crearea unei structuri de date (de exemplu, un dicționar sau un obiect) pentru stocarea rezultatelor DNS. \
+Asigurarea că fiecare înregistrare DNS din cache include un TTL asociat. Datele vor expira automat după intervalul de timp specificat. \
+La expirarea TTL-ului unei înregistrări, aceasta va fi eliminată din cache sau actualizată.
 
 # 6. Controlul valorii TTL
 În partea de monitorizare, voi implementa o opțiune prin care să pot modifica valoarea TTL pentru fiecare resursă în parte. Acest control îmi va permite să gestionez cât timp rămân valide resursele în cache și să optimizez traficul de rețea.
