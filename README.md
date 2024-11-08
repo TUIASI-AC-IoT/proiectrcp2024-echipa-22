@@ -44,6 +44,11 @@ Pașii de implementare:
 # 1. Utilizarea modulului socket pentru comunicație
 Primul pas în implementarea mDNS și DNS-SD este configurarea unui socket UDP care va trimite și va primi mesaje prin rețea folosind adrese multicast. Modulul socket din Python este ideal pentru acest tip de comunicație, fiind capabil să interacționeze cu rețelele de multicast.
 
+
+
+# 2. Implementarea structurii pachetelor mDNS/DNS-SD
+Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte formatul specificat de RFC-urile 6762 și 6763. Aceste pachete pot include mai multe tipuri de înregistrări, cum ar fi SRV, PTR, A și TXT.
+
 DNS-SD (DNS Service Discovery) folosește înregistrări DNS standard, dar într-un mod specific pentru descoperirea serviciilor. Iată structura principală:
 
 1. Înregistrarea SRV (Service Record):
@@ -121,18 +126,6 @@ Această structurare permite:
 - Operare zero-configuration în rețele locale
 
 
-
-# 2. Implementarea structurii pachetelor mDNS/DNS-SD
-Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte formatul specificat de RFC-urile 6762 și 6763. Aceste pachete pot include mai multe tipuri de înregistrări, cum ar fi SRV, PTR, A și TXT.
-
-Pașii de implementare:
-
-Fiecare pachet DNS va conține tipul înregistrării (A, PTR, SRV, TXT), precum și numele și valorile corespunzătoare fiecărei înregistrări. \
-SRV indică serviciul, portul și protocolul asociat unui serviciu. \
-PTR furnizează informații despre serviciul disponibil pe un anumit hostname. \
-A indică adresa IP asociată unui serviciu. \
-TXT oferă informații adiționale despre serviciu, cum ar fi parametri de configurare sau descrierea serviciului. \
-Toate aceste tipuri de înregistrări vor trebui construite, iar pachetele vor fi procesate și trimise către rețea. 
 
 # 3. Monitorizarea resurselor sistemului (procesor, memorie, temperatură)
 Pentru a monitoriza resursele sistemului, se poate utiliza librăria psutil, care oferă funcționalități pentru a obține date despre utilizarea procesorului, memoriei și temperaturii dispozitivului.
