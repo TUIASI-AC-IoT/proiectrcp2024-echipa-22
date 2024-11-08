@@ -32,7 +32,7 @@ Aceste înregistrări indică prezența unui serviciu și direcționează către
 
 # Cerințe Funcționale:
 
-1.Utilizarea modulului socket pentru comunicație \
+1.Utilizarea modulului socket pentru comunicație 
 2.Implementarea structurii pachetelor mDNS/DNS-SD \
 3.Monitorizarea resurselor sistemului (procesor, memorie, temperatură) \
 4.Descoperirea serviciilor în rețeaua locală \
@@ -48,19 +48,19 @@ Primul pas în implementarea mDNS și DNS-SD este configurarea unui socket UDP c
 Creează un socket UDP configurat pentru comunicare multicast -> Se conectează la adresa multicast standard mDNS (224.0.0.251) și portul 5353 -> Configurează opțiunile necesare pentru multicast (TTL, loop-back
 
   2. Creare Pachete DNS-SD:
-- Implementează structura standard a pachetelor DNS\
-- Suportă atât pachete de tip query cât și response\
-- Codifică corect numele serviciilor în format DNS\
+- Implementează structura standard a pachetelor DNS
+- Suportă atât pachete de tip query cât și response
+- Codifică corect numele serviciilor în format DNS
 - Include câmpurile PTR necesare pentru DNS-SD
   
   3. Gestionare Serviciu:
-- Anunță periodic prezența serviciului în rețea\
-- Răspunde la interogări despre serviciu\
+- Anunță periodic prezența serviciului în rețea
+- Răspunde la interogări despre serviciu
 - Menține TTL-ul serviciului
 
   4. Monitorizare Rețea:
-- Ascultă continuu pentru interogări mDNS\
-- Procesează pachetele primite\
+- Ascultă continuu pentru interogări mDNS
+- Procesează pachetele primite
 - Răspunde automat la interogări relevante
 
 # 2. Implementarea structurii pachetelor mDNS/DNS-SD
