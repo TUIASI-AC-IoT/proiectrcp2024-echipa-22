@@ -48,20 +48,20 @@ Primul pas în implementarea mDNS și DNS-SD este configurarea unui socket UDP c
 Creează un socket UDP configurat pentru comunicare multicast -> Se conectează la adresa multicast standard mDNS (224.0.0.251) și portul 5353 -> Configurează opțiunile necesare pentru multicast (TTL, loop-back
 
 2. Creare Pachete DNS-SD:
-  - Implementează structura standard a pachetelor DNS
-  - Suportă atât pachete de tip query cât și response
-  - Codifică corect numele serviciilor în format DNS
-  - Include câmpurile PTR necesare pentru DNS-SD
+    - Implementează structura standard a pachetelor DNS
+    - Suportă atât pachete de tip query cât și response
+    - Codifică corect numele serviciilor în format DNS
+    - Include câmpurile PTR necesare pentru DNS-SD
 
 3. Gestionare Serviciu:
-  - Anunță periodic prezența serviciului în rețea
-  - Răspunde la interogări despre serviciu
-  - Menține TTL-ul serviciului
+    - Anunță periodic prezența serviciului în rețea
+    - Răspunde la interogări despre serviciu
+    - Menține TTL-ul serviciului
 
 4. Monitorizare Rețea:
-  - Ascultă continuu pentru interogări mDNS
-  - Procesează pachetele primite
-  - Răspunde automat la interogări relevante
+    - Ascultă continuu pentru interogări mDNS
+    - Procesează pachetele primite
+    - Răspunde automat la interogări relevante
 
 # 2. Implementarea structurii pachetelor mDNS/DNS-SD
 Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte formatul specificat de RFC-urile 6762 și 6763. Aceste pachete pot include mai multe tipuri de înregistrări, cum ar fi SRV, PTR, A și TXT.
