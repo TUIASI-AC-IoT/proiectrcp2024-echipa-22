@@ -151,7 +151,7 @@ Includerea informațiilor în pachetele de răspuns: Când un client solicită i
 # 4. Descoperirea serviciilor în rețeaua locală
 Pentru a descoperi serviciile disponibile în rețeaua locală, va trebui implementat un mecanism care trimite cereri multicast DNS. Aceste cereri vor solicita informații de la celelalte dispozitive din rețea care oferă servicii DNS-SD.
 
-Pașii de implementare:
+Pașii de implementare:\
     Trimiterea unor cereri mDNS pe portul 5353 către grupul multicast 224.0.0.251, care este utilizat pentru descoperirea serviciilor în rețea. \
     Așteptarea de răspunsuri de la dispozitivele din rețea, care vor conține informații despre serviciile disponibile, incluzând tipurile de înregistrări SRV, PTR, A și TXT. \
     Interpretarea răspunsurile primite și extragerea informațiilor relevante despre serviciile descoperite.
