@@ -145,7 +145,8 @@ Această structurare permite:
 
 
 # 3. Monitorizarea resurselor sistemului (procesor, memorie, temperatură)
-Folosim funcțiile psutil pentru a colecta datele necesare, precum utilizarea CPU-ului, utilizarea memoriei sau temperaturile. Aceste informații vor fi expuse sub formă de servicii DNS-SD, permițând altor dispozitive să le acceseze prin rețea. Includerea informațiilor în pachetele de răspuns: Când un client solicită informații despre serviciu, vom adăuga datele de monitorizare în câmpurile TXT ale pachetului de răspuns mDNS/DNS-SD. Aceste câmpuri vor conține valorile metricilor colectate.Accesarea informațiilor de către clienți: Aplicațiile client care descoperă acest serviciu vor putea accesa și afișa informațiile de monitorizare din câmpurile TXT ale răspunsurilor mDNS/DNS-SD. Acestea pot include valorile CPU, memorie și temperatură.
+Folosim funcțiile psutil pentru a colecta datele necesare, precum utilizarea CPU-ului, utilizarea memoriei sau temperaturile. Aceste informații vor fi expuse sub formă de servicii DNS-SD, permițând altor dispozitive să le acceseze prin rețea. 
+Includerea informațiilor în pachetele de răspuns: Când un client solicită informații despre serviciu, vom adăuga datele de monitorizare în câmpurile TXT ale pachetului de răspuns mDNS/DNS-SD. Aceste câmpuri vor conține valorile metricilor colectate.Accesarea informațiilor de către clienți: Aplicațiile client care descoperă acest serviciu vor putea accesa și afișa informațiile de monitorizare din câmpurile TXT ale răspunsurilor mDNS/DNS-SD.
 
 
 # 4. Descoperirea serviciilor în rețeaua locală
