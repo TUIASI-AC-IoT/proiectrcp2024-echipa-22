@@ -70,6 +70,7 @@ Pentru a reduce cererile repetate de rețea, trebuie implementat un mecanism de 
 # 6. Controlul valorii TTL
 În partea de monitorizare, voi implementa o opțiune prin care să pot modifica valoarea TTL pentru fiecare resursă în parte. Acest control îmi va permite să gestionez cât timp rămân valide resursele în cache și să optimizez traficul de rețea.
 
+
 # Resurse utile
 Pentru a înțelege mai bine cum implementez aceste concepte,ne vom baza pe următoarele documente și resurse:
 
