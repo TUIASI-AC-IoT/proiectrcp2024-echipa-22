@@ -40,7 +40,6 @@ Aceste înregistrări indică prezența unui serviciu și direcționează către
 6.Control TTL pentru monitorizare
 
 
-Pașii de implementare:
 # 1. Utilizarea modulului socket pentru comunicație
 Primul pas în implementarea mDNS și DNS-SD este configurarea unui socket UDP care va trimite și va primi mesaje prin rețea folosind adrese multicast. Modulul socket din Python este ideal pentru acest tip de comunicație, fiind capabil să interacționeze cu rețelele de multicast.
 
