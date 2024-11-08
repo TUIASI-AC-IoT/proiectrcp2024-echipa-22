@@ -60,10 +60,19 @@ Pașii de implementare:
 Crearea unui socket UDP care va comunica pe portul standard pentru mDNS (5353). \
 Configurarea socket-ului pentru a permite trimiterea și primirea pachetelor prin multicast, pe adresa 224.0.0.251. \
 Trimiterea pachetelor DNS folosind socket-ul configurat, respectând structura specifică mDNS/DNS-SD. \
-Ascultarea pe socket pentru a primi răspunsuri de la alte dispozitive din rețea, care vor include informațiile solicitate. \
+Ascultarea pe socket pentru a primi răspunsuri de la alte dispozitive din rețea, care vor include informațiile solicitate. 
 
-# 2. Monitorizarea resurselor sistemului
-Pentru a monitoriza diverse resurse ale sistemului (precum utilizarea procesorului, memoriei și temperatura), vom utiliza un script care utilizează modulele Python potrivite, cum ar fi psutil. Acesta permite preluarea datele despre resursele sistemului și monitorizarea în timp real.
+# 2. Implementarea structurii pachetelor mDNS/DNS-SD
+Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte formatul specificat de RFC-urile 6762 și 6763. Aceste pachete pot include mai multe tipuri de înregistrări, cum ar fi SRV, PTR, A și TXT.
+
+Pașii de implementare:
+
+Fiecare pachet DNS va conține tipul înregistrării (A, PTR, SRV, TXT), precum și numele și valorile corespunzătoare fiecărei înregistrări. /
+SRV indică serviciul, portul și protocolul asociat unui serviciu. /
+PTR furnizează informații despre serviciul disponibil pe un anumit hostname. /
+A indică adresa IP asociată unui serviciu. /
+TXT oferă informații adiționale despre serviciu, cum ar fi parametri de configurare sau descrierea serviciului. /
+Toate aceste tipuri de înregistrări vor trebui construite, iar pachetele vor fi procesate și trimise către rețea. 
 
 # 3. Expunerea resurselor ca servicii DNS-SD
 Crearea unei interfațe care va permite selectarea resurselor pe care vreau să le monitorizez. Apoi, aceste resurse vor fi expuse în rețea sub forma unor înregistrări DNS-SD (SRV). Înregistrările PTR vor fi configurate pentru a arăta către hostname-urile resurselor monitorizate.
