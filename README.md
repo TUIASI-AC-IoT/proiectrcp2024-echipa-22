@@ -63,7 +63,6 @@ Creează un socket UDP configurat pentru comunicare multicast -> Se conectează 
 - Procesează pachetele primite\
 - Răspunde automat la interogări relevante
 
-
 # 2. Implementarea structurii pachetelor mDNS/DNS-SD
 Pachetele DNS care sunt utilizate în mDNS și DNS-SD trebuie să respecte formatul specificat de RFC-urile 6762 și 6763. Aceste pachete pot include mai multe tipuri de înregistrări, cum ar fi SRV, PTR, A și TXT.
 
