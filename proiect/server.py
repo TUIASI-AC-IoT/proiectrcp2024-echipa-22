@@ -17,6 +17,27 @@ class MonitoringServer:
     def set_hostname(self, hostname):
         self.hostname = hostname
 
+    def get_metric(self, metric_type):
+        try:
+            if metric_type == "CPU":
+                return f"{psutil.cpu_percent(interval=0.1)}%"
+            elif metric_type == "Memory":
+                return f"{psutil.virtual_memory().percent}%"
+            elif metric_type == "Disk":
+                return f"{psutil.disk_usage('/').percent}%"
+            elif metric_type == "Network":
+                net = psutil.net_io_counters()
+                return f"Sent={net.bytes_sent}B Recv={net.bytes_recv}B"
+            elif metric_type == "CPU Temperature":
+                if hasattr(psutil, "sensors_temperatures"):
+                    temps = psutil.sensors_temperatures()
+                    if temps and 'coretemp' in temps:
+                        return f"{temps['coretemp'][0].current}°C"
+                return "N/A"
+        except Exception as e:
+            return f"Error: {str(e)}"
+        return "Invalid metric"
+
     def start_server(self):
         try:
             self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
