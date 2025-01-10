@@ -1,21 +1,23 @@
-# Server (server.py)
 import socket
 import time
 import psutil
 import struct
+import threading
 import tkinter as tk
 from tkinter import ttk
-import threading
-
 
 class MonitoringServer:
     def __init__(self):
-        self.hostname = "Default"  # Valoare implicită
+        self.hostname = "Default"
         self.running = False
         self.server_socket = None
+        self.ttl = 120  # TTL implicit
 
     def set_hostname(self, hostname):
         self.hostname = hostname
+
+    def set_ttl(self, ttl):
+        self.ttl = ttl
 
     def get_metric(self, metric_type):
         try:
@@ -32,11 +34,17 @@ class MonitoringServer:
                 if hasattr(psutil, "sensors_temperatures"):
                     temps = psutil.sensors_temperatures()
                     if temps and 'coretemp' in temps:
-                        return f"{temps['coretemp'][0].current}°C"
+                        return f"{temps['coretemp'][0].current}\u00b0C"
                 return "N/A"
         except Exception as e:
             return f"Error: {str(e)}"
         return "Invalid metric"
+
+    def create_dns_sd_response(self, metric_type, metric_value):
+        srv_record = f"_monitoring._udp.local {self.hostname} {4533}"
+        txt_record = f"metric={metric_type},value={metric_value}"
+        ptr_record = f"_monitoring._udp.local {self.hostname}"
+        return srv_record, txt_record, ptr_record
 
     def start_server(self):
         try:
@@ -61,7 +69,8 @@ class MonitoringServer:
                         response = f"Server {self.hostname} active"
                     else:
                         metric_value = self.get_metric(metric_type)
-                        response = f"{metric_value} - from {self.hostname}"
+                        srv_record, txt_record, ptr_record = self.create_dns_sd_response(metric_type, metric_value)
+                        response = f"SRV: {srv_record}\nTXT: {txt_record}\nPTR: {ptr_record}"
 
                     self.server_socket.sendto(response.encode(), addr)
                 except Exception as e:
@@ -90,7 +99,6 @@ class MonitoringServer:
             except:
                 pass
 
-
 class ServerGUI:
     def __init__(self):
         self.root = tk.Tk()
@@ -103,13 +111,15 @@ class ServerGUI:
         frame = ttk.Frame(self.root, padding="10")
         frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-        # Adăugăm câmp pentru hostname
         ttk.Label(frame, text="Hostname:").grid(row=0, column=0, pady=5, sticky=tk.W)
         self.hostname_entry = ttk.Entry(frame)
         self.hostname_entry.grid(row=0, column=1, pady=5, padx=5)
         self.hostname_entry.insert(0, self.server.hostname)
 
-        ttk.Label(frame, text="Port: 4533").grid(row=1, column=0, columnspan=2, pady=5)
+        ttk.Label(frame, text="TTL:").grid(row=1, column=0, pady=5, sticky=tk.W)
+        self.ttl_entry = ttk.Entry(frame)
+        self.ttl_entry.grid(row=1, column=1, pady=5, padx=5)
+        self.ttl_entry.insert(0, str(self.server.ttl))
 
         self.status_var = tk.StringVar(value="Server oprit")
         ttk.Label(frame, textvariable=self.status_var).grid(row=2, column=0, columnspan=2, pady=5)
@@ -119,9 +129,18 @@ class ServerGUI:
 
     def toggle_server(self):
         if self.toggle_button["text"] == "Start Server":
-            # Actualizăm hostname-ul înainte de pornirea serverului
             self.server.set_hostname(self.hostname_entry.get())
-            self.hostname_entry.config(state='disabled')  # Dezactivăm modificarea în timp ce serverul rulează
+            try:
+                ttl = int(self.ttl_entry.get())
+                if ttl <= 0:
+                    raise ValueError("TTL trebuie sa fie pozitiv.")
+                self.server.set_ttl(ttl)
+            except ValueError as e:
+                self.status_var.set(f"Eroare TTL: {str(e)}")
+                return
+
+            self.hostname_entry.config(state='disabled')
+            self.ttl_entry.config(state='disabled')
 
             self.server_thread = threading.Thread(target=self.server.start_server)
             self.server_thread.daemon = True
@@ -134,7 +153,8 @@ class ServerGUI:
                 self.server_thread.join(timeout=1)
             self.status_var.set("Server oprit")
             self.toggle_button["text"] = "Start Server"
-            self.hostname_entry.config(state='normal')  # Reactivăm modificarea hostname-ului
+            self.hostname_entry.config(state='normal')
+            self.ttl_entry.config(state='normal')
 
     def run(self):
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -143,7 +163,6 @@ class ServerGUI:
     def on_closing(self):
         self.server.stop_server()
         self.root.destroy()
-
 
 if __name__ == "__main__":
     gui = ServerGUI()
