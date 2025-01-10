@@ -1,0 +1,46 @@
+2025-01-10 14:30:21 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=CPU,value=14.8%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:22 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Memory,value=86.3%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:22 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Disk,value=82.0%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:22 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Network,value=Sent=891298625B Recv=764784577B
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:22 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=CPU,value=8.0%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:23 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Memory,value=86.3%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:23 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Disk,value=82.0%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:23 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Network,value=Sent=891298951B Recv=764784836B
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:23 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=CPU Temperature,value=N/A
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:23 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=CPU,value=5.9%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:24 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Memory,value=86.3%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:24 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Disk,value=82.0%
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:24 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=Network,value=Sent=891299356B Recv=764784968B
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:24 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=CPU Temperature,value=N/A
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+2025-01-10 14:30:24 - SRV: _monitoring._udp.local manu 4533
+TXT: metric=CPU Temperature,value=N/A
+PTR: _monitoring._udp.local manu (from 192.168.1.130:4533)
+
